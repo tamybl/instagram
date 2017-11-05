@@ -69,7 +69,7 @@ textarea {
 
 #btn:focus, textarea:focus{
 	outline: none;
-}
+} 
 
 /* Estilos contenedor comentarios */
 #cont {

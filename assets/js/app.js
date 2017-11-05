@@ -6,8 +6,8 @@ function add() {
 	// Crear div contenedor
 	var newComments = document.createElement('div');
 	// Validar que textarea tiene mensaje
-	if (comments.length == 0 || comments == null || comments == ' ') {
-		alert('Ingresa un comentario');
+	if (comments.length == 0 || comments == null || /^\s+$/.test(comments)) {
+		alert('Ingresa un comentario valido');
 		return false;
 	}
 	// Crear checkbox
@@ -27,7 +27,21 @@ function add() {
 	contenedorElemento.appendChild(textNewComment);
 	newComments.appendChild(chck);
 	newComments.appendChild(contenedorElemento);
-	newComments.appendChild(iconHeart);
 	newComments.appendChild(iconTrash);
+	newComments.appendChild(iconHeart);
 	cont.appendChild(newComments);
+
+	// Para eliminar comentario
+	iconTrash.addEventListener('click', function(){
+		cont.removeChild(newComments);
+	});
+
+	// Color al corazon
+	iconHeart.addEventListener('click', function () {
+		iconHeart.classList.toggle('red'); // agrega y quita clase
+	})
+
 }
+
+
+
